@@ -1,6 +1,8 @@
 --
 -- PostgreSQL database dump
 --
+DROP DATABASE pg_exercises;
+
 CREATE DATABASE pg_exercises;
 \c pg_exercises
 CREATE SCHEMA cd;
