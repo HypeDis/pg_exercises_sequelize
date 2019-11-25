@@ -3,18 +3,17 @@ const Member = require('./Member.js');
 const Facility = require('./Facility.js');
 const Booking = require('./Booking.js');
 
-Member.belongsTo(Member, { as: 'recommendedby' });
+Member.hasOne(Member, {
+  foreignKey: 'memid',
+  targetKey: 'recommendedby',
+  as: 'recs',
+});
+// Member.belongsTo(Member, { as: 'recs' });
 
-Booking.belongsTo(Facility, { as: 'facid' });
-Facility.hasMany(Booking);
+Booking.belongsTo(Facility, { foreignKey: 'facid' });
+Facility.hasMany(Booking, { foreignKey: 'facid' });
 
-Booking.belongsTo(Member, { as: 'memid' });
-Member.hasMany(Booking);
-
-db.sync()
-  .then(() => {
-    console.log('db synced');
-  })
-  .catch(e => console.error(e));
+Booking.belongsTo(Member, { foreignKey: 'memid' });
+Member.hasMany(Booking, { foreignKey: 'memid' });
 
 module.exports = { db, Member, Facility, Booking };

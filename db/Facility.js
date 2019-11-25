@@ -30,7 +30,7 @@ const Facility = db.define(
       allowNull: false,
     },
   },
-  { timeStamps: false, schema: 'cd' }
+  { timestamps: false, schema: 'cd' }
 );
 
 module.exports = Facility;
