@@ -3,7 +3,7 @@ const Op = Sequelize.Op;
 const { db, Member, Facility, Booking } = require('./../db/index.js');
 const answers = {};
 
-// Question 1
+// Question 1 Retrieve everything from a table
 // How can you retrieve all the information from the cd.facilities table?
 
 answers.q1Raw = 'SELECT * FROM cd.facilities';
@@ -16,7 +16,7 @@ answers.q1 = () => {
     .catch(e => console.error(e));
 };
 
-// Question 2
+// Question 2 Retrieve specific columns from a table
 // You want to print out a list of all of the facilities and their cost to members. How would you retrieve a list of only facility names and costs?
 
 answers.q2Raw = 'SELECT name, membercost FROM cd.facilities';
@@ -30,7 +30,7 @@ answers.q2 = () => {
     .catch(e => console.error(e));
 };
 
-// Question 3
+// Question 3 Control which rows are retrieved
 // How can you produce a list of facilities that charge a fee to members?
 
 answers.q3Raw = 'SELECT * FROM cd.facilities WHERE membercost > 0';
@@ -48,7 +48,7 @@ answers.q3 = () => {
     .catch(e => console.error(e));
 };
 
-// Question 4
+// Question 4 Control which rows are retrieved - part 2
 // How can you produce a list of facilities that charge a fee to members, and that fee is less than 1/50th of the monthly maintenance cost? Return the facid, facility name, member cost, and monthly maintenance of the facilities in question.
 
 answers.q4Raw =
@@ -72,7 +72,7 @@ answers.q4 = () => {
     .catch(e => console.error(e));
 };
 
-// Question 5
+// Question 5 Basic string searches
 // How can you produce a list of all facilities with the word 'Tennis' in their name?
 
 answers.q5Raw = "SELECT * FROM cd.facilities WHERE name like '%Tennis%'";
@@ -92,7 +92,7 @@ answers.q5 = () => {
     .catch(e => console.error(e));
 };
 
-// Question 6
+// Question 6 Matching against multiple possible values
 // How can you retrieve the details of facilities with ID 1 and 5? Try to do it without using the OR operator.
 
 answers.q6Raw = 'SELECT * FROM cd.facilities WHERE facid in (1,5)';
@@ -112,7 +112,7 @@ answers.q6 = () => {
     .catch(e => console.error(e));
 };
 
-// Question 7
+// Question 7 Classify results into buckets
 // How can you produce a list of facilities, with each labelled as 'cheap' or 'expensive' depending on if their monthly maintenance cost is more than $100? Return the name and monthly maintenance of the facilities in question.
 
 answers.q7Raw = `select name, 
@@ -141,7 +141,7 @@ answers.q7 = () => {
     .catch(e => console.error(e));
 };
 
-// Question 8
+// Question 8 Working with dates
 // How can you produce a list of members who joined after the start of September 2012? Return the memid, surname, firstname, and joindate of the members in question.
 
 answers.q8Raw = `
@@ -163,7 +163,7 @@ answers.q8 = () => {
     .catch(e => console.error(e));
 };
 
-// Question 9
+// Question 9 Removing duplicates, and ordering results
 // How can you produce an ordered list of the first 10 surnames in the members table? The list must not contain duplicates.
 answers.q9Raw = `select distinct surname from cd.members
 order by surname asc
@@ -183,7 +183,7 @@ answers.q9 = () => {
     .catch(e => console.error(e));
 };
 
-// Question 10
+// Question 10 Combining results from multiple queries
 // You, for some reason, want a combined list of all surnames and all facility names. Yes, this is a contrived example :-). Produce that list!
 
 answers.q10Raw = `select surname from cd.members
@@ -207,7 +207,7 @@ answers.q10 = () => {
 };
 module.exports = answers;
 
-// Question 11
+// Question 11 Simple aggregation
 // You'd like to get the signup date of your last member. How can you retrieve this information?
 
 answers.q11Raw = `select max(joindate) as latest from cd.members`;
@@ -218,7 +218,7 @@ answers.q11 = () => {
     .catch(e => console.error(e));
 };
 
-// Question 12
+// Question 12 More aggregation
 // You'd like to get the first and last name of the last member(s) who signed up - not just the date. How can you do that?
 
 answers.q12Raw = `select firstname, surname, joindate from cd.members

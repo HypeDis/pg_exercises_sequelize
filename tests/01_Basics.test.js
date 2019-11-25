@@ -4,7 +4,7 @@ const getRawQuery = require('./../utils/getRawQuery.js');
 
 xdescribe('Section 1, Basics', () => {
   // question 1
-  describe('It should return all facilities', () => {
+  describe('Retrieve everything from a table', () => {
     test('raw query', async () => {
       const q1Raw = await getRawQuery(sect1Answers.q1Raw);
       expect(q1Raw).toEqual(solutions.q1);
@@ -16,7 +16,7 @@ xdescribe('Section 1, Basics', () => {
   });
 
   // question 2
-  describe('It should return name and cost of all facilities', () => {
+  describe('Retrieve specific columns from a table', () => {
     test('raw query', async () => {
       const q2Raw = await getRawQuery(sect1Answers.q2Raw);
       expect(q2Raw).toEqual(solutions.q2);
@@ -29,7 +29,7 @@ xdescribe('Section 1, Basics', () => {
   });
 
   // question 3
-  describe('It should return a list of facilities that charge a fee to members', () => {
+  describe('Control which rows are retrieved', () => {
     test('raw query', async () => {
       const q3Raw = await getRawQuery(sect1Answers.q3Raw);
       expect(q3Raw).toEqual(solutions.q3);
@@ -42,7 +42,7 @@ xdescribe('Section 1, Basics', () => {
   });
 
   // question 4
-  describe('It should return a list of facilities that charge a fee to members that is 1/50th the cost of monthly maintenance', () => {
+  describe('Control which rows are retrieved - part 2', () => {
     test('raw query', async () => {
       const q4Raw = await getRawQuery(sect1Answers.q4Raw);
       expect(q4Raw).toEqual(solutions.q4);
@@ -54,7 +54,7 @@ xdescribe('Section 1, Basics', () => {
   });
 
   // question 5
-  describe('It should return a list of facilities with Tennis in the name', () => {
+  describe('Basic string searches', () => {
     test('raw query', async () => {
       const q5Raw = await getRawQuery(sect1Answers.q5Raw);
       expect(q5Raw).toEqual(solutions.q5);
@@ -67,7 +67,7 @@ xdescribe('Section 1, Basics', () => {
   });
 
   // question 6
-  describe('It should return a list of facilities with an id of 1 and 5, without using OR', () => {
+  describe('Matching against multiple possible values', () => {
     test('raw query', async () => {
       const q6Raw = await getRawQuery(sect1Answers.q6Raw);
       expect(q6Raw).toEqual(solutions.q6);
@@ -80,7 +80,7 @@ xdescribe('Section 1, Basics', () => {
   });
 
   // question 7
-  describe("It should return a list of facilities, with each labelled as 'cheap' or 'expensive' depending on if their monthly maintenance cost is more than $100. Return the name and monthly maintenance of the facilities in question. ", () => {
+  describe('Classify results into buckets', () => {
     test('raw query', async () => {
       const q7Raw = await getRawQuery(sect1Answers.q7Raw);
       expect(q7Raw).toEqual(solutions.q7);
@@ -93,7 +93,7 @@ xdescribe('Section 1, Basics', () => {
   });
 
   // question 8
-  describe('It should return a list of members who joined after the start of September 2012. Return the memid, surname, firstname, and joindate of the members in question. ', () => {
+  describe('Working with dates', () => {
     test('raw query', async () => {
       const q8Raw = await getRawQuery(sect1Answers.q8Raw);
       expect(q8Raw).toEqual(solutions.q8);
@@ -106,7 +106,7 @@ xdescribe('Section 1, Basics', () => {
   });
 
   // question 9
-  describe('It should return an ordered list of the first 10 surnames in the members table. The list must not contain duplicates.', () => {
+  describe('Removing duplicates, and ordering results', () => {
     test('raw query', async () => {
       const q9Raw = await getRawQuery(sect1Answers.q9Raw);
       expect(q9Raw).toEqual(solutions.q9);
@@ -119,7 +119,7 @@ xdescribe('Section 1, Basics', () => {
   });
 
   // question 10
-  describe('It should return a combined list of all surnames and all facility names.', () => {
+  describe('Combining results from multiple queries', () => {
     test('raw query', async () => {
       const q10Raw = await getRawQuery(sect1Answers.q10Raw);
       expect(q10Raw).toEqual(solutions.q10);
@@ -132,7 +132,7 @@ xdescribe('Section 1, Basics', () => {
   });
 
   // question 11
-  describe('It should return the signup date of the last member', () => {
+  describe('Simple aggregation', () => {
     test('raw query', async () => {
       const q11Raw = await getRawQuery(sect1Answers.q11Raw);
       expect(q11Raw).toEqual(solutions.q11);
@@ -146,7 +146,7 @@ xdescribe('Section 1, Basics', () => {
   });
 
   // question 12
-  describe('It should return the first and last name of the last member(s) who signed up - not just the date.', () => {
+  describe('More aggregation', () => {
     test('raw query', async () => {
       const q12Raw = await getRawQuery(sect1Answers.q12Raw);
       expect(q12Raw).toEqual(solutions.q12);
