@@ -1,11 +1,23 @@
-const cmd = require('node-cmd');
+const { db } = require('./../db/index.js');
+const { exec } = require('child_process');
 
 const seedDb = () => {
-  cmd.run('psql -f ./seed_data/clubdata.sql');
+  console.log('seeding database');
+  exec('psql -f ./seed_data/clubdata.sql', (error, stdout, stderr) => {
+    if (error) {
+      console.error(error);
+      return;
+    }
+    db.sync()
+      .then(() => {
+        console.log('models synced');
+        db.close();
+        console.log('seeding complete');
+      })
+      .catch(e => console.error(e));
+  });
 };
 
 seedDb();
 
-console.log('database seed successful');
-
-module.exports = seedDb;
+// module.exports = seedDb;

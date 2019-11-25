@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "node ./seed_data/seed.js"
+    "test": "jest --verbose --watch",
+    "seed": "node ./seed_data/seed.js",
+    "server": "nodemon ./server/server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "node-cmd": "^3.0.0",
     "pg": "^7.11.0",
     "pg-hstore": "^2.3.2",
